@@ -58,18 +58,20 @@ return packer.startup(function(use)
 	use({ "folke/tokyonight.nvim" })
 	use({ "Minimal-Mistakes/minimalmistakes-nvim" })
 
-	-- cmp plugins
-	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
-	use({ "hrsh7th/cmp-buffer" }) -- buffer completions
-	use({ "hrsh7th/cmp-cmdline" }) -- cmdline completions
-	use({ "hrsh7th/cmp-path" }) -- path completions
-	use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
-	use({ "hrsh7th/cmp-nvim-lsp" })
-	use({ "hrsh7th/cmp-nvim-lua" })
-
-	-- snippets
-	use({ "L3MON4D3/LuaSnip" }) -- snippet engine
-	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
+	-- CMP plugins
+	use { -- Autocompletion
+    'hrsh7th/nvim-cmp',
+    requires = {
+        'hrsh7th/cmp-buffer', -- buffer completions
+        'hrsh7th/cmp-cmdline', -- cmdline completions
+        'hrsh7th/cmp-path', -- path completions
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-nvim-lua',
+        'L3MON4D3/LuaSnip', -- snippet engine
+        'rafamadriz/friendly-snippets', -- a bunch of snippets to use
+        'saadparwaiz1/cmp_luasnip'
+    },
+  }
 
 	-- LSP
 	use({ -- LSP Configuration & Plugins
@@ -108,14 +110,14 @@ return packer.startup(function(use)
     }
 
 	-- Git
+    use({ "tpope/vim-fugitive" })
+    use({ "tpope/vim-rhubarb" })
 	use({ "lewis6991/gitsigns.nvim" })
 
 	-- Custom
 	use({ "wesleimp/stylua.nvim" })
 	use({ "cappyzawa/trim.nvim" })
 	use({ "ap/vim-css-color" })
-	use({ "tpope/vim-fugitive" })
-    use({ "tpope/vim-rhubarb" })
 	use({ "airblade/vim-gitgutter" })
 	use({ "ctrlpvim/ctrlp.vim" })
 	use({ "lyuts/vim-rtags" })
